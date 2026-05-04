@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const fetchTodos = async () => {
     try{
-const response = await axios.get(import.meta.env.VITE_API_URL + 'v1/todos');
+const response = await axios.get(import.meta.env.VITE_API_URL + 'v1/todos/');
     return response.data;
     }
     catch (error) {
