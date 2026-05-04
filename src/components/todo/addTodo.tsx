@@ -1,9 +1,10 @@
 import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useAddTodoMutation } from '../../queries/addTodo';
+import type { BodyProps } from '../../queries/types';
 
 const AddTodo: React.FC = () => {
-  const [todo,setTodo] = useState({
+  const [todo,setTodo] = useState<BodyProps>({
     title: '',
     description: '',
     status: 'pending'
@@ -20,7 +21,7 @@ const AddTodo: React.FC = () => {
                 description: '',
                 status: 'pending'
             });
-            console.log("Todo added successfully")
+            console.log("Todo added successfully",data)
         },
         onError: (error) => {
             console.error("Error adding todo:", error);

@@ -1,10 +1,10 @@
 import { Alert, Snackbar } from "@mui/material";
-import React, { useState } from "react";
+import  { useState } from "react";
 
-export const CustomizedSnackBar = ({type, message}) => {
+export const CustomizedSnackBar = ({type, message}: { type: "error" | "success" | "warning" | "info"; message: string }) => {
     const [open, setOpen] = useState(false);
 
-    const handleClose = (event, reason) => {
+    const handleClose = (_event: any, reason: string) => {
         if(reason === 'clickaway'){
             return;
         }
@@ -12,9 +12,13 @@ export const CustomizedSnackBar = ({type, message}) => {
         setOpen(false);
     }
 
+    const handleAlertClose = (_event: React.SyntheticEvent | null) => {
+        setOpen(false);
+    };
+
     return (
-        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity={type} sx={{ width: '100%' }}>
+        <Snackbar open={open} autoHideDuration={3000} onClose={(e: any, reason: string) => handleClose(e, reason)}>
+            <Alert onClose={handleAlertClose} severity={type} sx={{ width: '100%' }}>
                 {message}
             </Alert>
         </Snackbar>

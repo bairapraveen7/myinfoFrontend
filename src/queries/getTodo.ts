@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const fetchTodo = async (id) => {
+const fetchTodo = async (id: string) => {
     try{
 const response = await axios.get(import.meta.env.VITE_API_URL + `v1/todos/${id}`);
   return response.data;
@@ -14,7 +14,7 @@ const response = await axios.get(import.meta.env.VITE_API_URL + `v1/todos/${id}`
   
 };
 
-export const useGetTodo = (id) => {
+export const useGetTodo = (id: string) => {
   return useQuery({
     queryKey: ['todo', id],
     queryFn: () => fetchTodo(id)
