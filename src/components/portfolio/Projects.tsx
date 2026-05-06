@@ -1,0 +1,36 @@
+import { Card, CircularProgress, Typography } from "@mui/material";
+import React, { Fragment } from "react";
+import { WithConditional } from "../ui/WithConditional";
+
+export const Projects: React.FC = ({
+  userProjects,
+}: {
+  isUserProfileLoading: boolean;
+  userProjects: any;
+}) => {
+  return (
+    <section id="projects">
+      <Typography
+        sx={{ mb: 1, borderBottom: "2px solid black", width: "fit-content" }}
+        variant="h5"
+      >
+        Projects
+      </Typography>
+      <div>
+        {
+            userProjects?.map((project) => (
+                <Card sx={{ marginBottom: 2, padding: 2 }}>
+                    <Typography variant="h6">{project.name}</Typography>
+                    <Typography variant="subtitle1">
+                        <b>Tools:</b> {project.tools.join(",")}
+                    </Typography>
+                    <Typography variant="body1">
+                        <b>Value Addition:</b> {project.description}
+                    </Typography>
+                </Card>
+            ))
+        }
+      </div>
+    </section>
+  );
+};
