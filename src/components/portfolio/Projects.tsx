@@ -1,12 +1,14 @@
-import { Card, CircularProgress, Typography } from "@mui/material";
-import React, { Fragment } from "react";
-import { WithConditional } from "../ui/WithConditional";
+import { Card, Typography } from "@mui/material";
+import React  from "react";
+import type { UserProjectType } from "./types";
 
-export const Projects: React.FC = ({
+interface ProjectsProps {
+    userProjects: UserProjectType[]
+}
+export const Projects: React.FC<ProjectsProps> = ({
   userProjects,
 }: {
-  isUserProfileLoading: boolean;
-  userProjects: any;
+  userProjects: UserProjectType[];
 }) => {
   return (
     <section id="projects">

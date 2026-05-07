@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navbar } from "../ui/navbar/Navbar";
 import { About } from "./About";
 import { Skills } from "./Skills";
@@ -11,7 +11,7 @@ import { WithConditional } from "../ui/WithConditional";
 import { LinearProgress } from "@mui/material";
 
 export const Portfolio: React.FC = () => {
-  const { user_experience, user_info, user_projects, user_skills, isError: isUserProfileError, isLoading: isUserProfileLoading } = useUserProfile({body: {id: '1'}});
+  const { user_experience, user_info, user_projects, user_skills, isLoading: isUserProfileLoading } = useUserProfile({body: {id: '1'}});
   console.log("user_experience", user_experience);
   console.log("user_info", user_info);
   console.log("user_projects", user_projects);
@@ -27,10 +27,10 @@ export const Portfolio: React.FC = () => {
         <LinearProgress />
       </WithConditional>
       <div className={classes.content}>
-        <About isUserProfileLoading={isUserProfileLoading} userInfo={user_info} />
-        <Skills isUserProfileLoading={isUserProfileLoading} userSkills={user_skills} />
-        <Experience isUserProfileLoading={isUserProfileLoading} userExperience={user_experience} />
-        <Projects isUserProfileLoading={isUserProfileLoading} userProjects={user_projects} />
+        <About  userInfo={user_info} />
+        <Skills userSkills={user_skills} />
+        <Experience  userExperience={user_experience} />
+        <Projects  userProjects={user_projects} />
       </div>
       <div className={classes.footer}>
         <Footer userInfo={user_info} />

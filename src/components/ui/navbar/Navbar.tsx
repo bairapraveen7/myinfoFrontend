@@ -3,28 +3,28 @@ import React from "react";
 
 export const Navbar: React.FC = () => {
     return (
-        <Grid container spacing={2} alignItems="center" sx={{ padding: 2, backgroundColor: '#1976d2', color: 'white' }}>
-            <Grid item>
+        <Grid container spacing={2} sx={{ padding: 2, backgroundColor: '#1976d2', color: 'white' }}>
+            <Grid >
                 <Button href="#home" variant="text" color="inherit">
                     Home
                 </Button>
             </Grid>
-            <Grid item>
+            <Grid >
                 <Button href="#about" variant="text" color="inherit">
                     About
                 </Button>
             </Grid>
-            <Grid item>
+            <Grid >
                 <Button href="#skills" variant="text" color="inherit">
                     Skills
                 </Button>
             </Grid>
-            <Grid item>
+            <Grid >
                 <Button href="#projects" variant="text" color="inherit">
                     Projects
                 </Button>
             </Grid>
-            <Grid item>
+            <Grid>
                 <Button href="#contact" variant="text" color="inherit">
                     Contact
                 </Button>

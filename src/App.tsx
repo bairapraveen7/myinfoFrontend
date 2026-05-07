@@ -1,11 +1,41 @@
 import './App.css'
-import { createTheme, Grid, ThemeProvider } from '@mui/material'
-import AddTodo from './components/todo/addTodo'
-import ListTodo from './components/todo/listTodo'
+import { createTheme, ThemeProvider } from '@mui/material'
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { SnackbarProvider } from 'notistack'
 import { Portfolio } from './components/portfolio'
 
+export interface themeProps {
+   palette:{
+    primary:{
+      main:string;
+    },
+    secondary:{
+      main:string;
+    }
+   },
+   typography:{
+    fontFamily: string;
+    fontSize: number;
+   },
+   components:{
+    MuiCssBaseline:{
+      styleOverrides:{
+        body:{
+          fontFamily: string
+        }
+      }
+    },
+    MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: string;
+          }
+        }
+      }
+
+   }
+}
 function App() {
 
   const theme = createTheme({

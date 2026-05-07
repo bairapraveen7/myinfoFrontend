@@ -1,23 +1,21 @@
 import {
   Box,
-  CircularProgress,
   Grid,
   IconButton,
-  Stack,
   styled,
   Typography,
 } from "@mui/material";
 import React from "react";
 import ChevronRightIcon from "@mui/icons-material/Code";
-import { WithConditional } from "../ui/WithConditional";
 
-const StyledBox = styled(Box)(({ theme }) => ({
+
+const StyledBox = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
-  textAlign: "left",
+  textAlign: "left"
 }));
 
-export const CustomChevronRightBoxComponent = ({ children }) => {
+export const CustomChevronRightBoxComponent = ({ children }:{children: React.ReactNode}) => {
   return (
     <StyledBox>
       <IconButton sx={{ alignSelf: "flex-start" }}>
@@ -28,11 +26,14 @@ export const CustomChevronRightBoxComponent = ({ children }) => {
   );
 };
 
-export const Skills: React.FC = ({
+type UserSkillsMap = Record<string, string[]>;
+
+type SkillsProps = {
+  userSkills: UserSkillsMap;
+};
+
+export const Skills: React.FC<SkillsProps> = ({
   userSkills,
-}: {
-  isUserProfileLoading: boolean;
-  userSkills: any;
 }) => {
   return (
     <section id="skills">
@@ -44,11 +45,11 @@ export const Skills: React.FC = ({
       </Typography>
       <Grid container spacing={4}>
         {
-            Object.keys(userSkills || {}).map((skillCategory) => (
-                <Grid item size={3}>
+            Object.keys(userSkills || {}).map((skillCategory:string) => (
+                <Grid size={3}>
                     <Typography variant="h6">{skillCategory}</Typography>
                     {
-                        userSkills[skillCategory].map((skill) => (
+                        userSkills[skillCategory].map((skill:string) => (
                             <CustomChevronRightBoxComponent>
                                 <Typography>{skill}</Typography>
                             </CustomChevronRightBoxComponent>

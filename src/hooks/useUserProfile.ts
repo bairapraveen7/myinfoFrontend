@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useGetUserProfileInfo } from "../queries/useGetUserProfileInfo";
 
-export const useUserProfile = (params) => {
+export const useUserProfile = (params:{body:{id: string}}) => {
     const { data, isLoading, isError } = useGetUserProfileInfo(params);
 
     const user_experience = useMemo(() => data?.user_experience || [], [data]);

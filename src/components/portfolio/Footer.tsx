@@ -1,7 +1,11 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import type { UserInfoType } from "./types";
 
-export const Footer: React.FC = ({userInfo}) => {
+interface FooterProps {
+    userInfo : UserInfoType
+}
+export const Footer: React.FC<FooterProps> = ({userInfo}:{userInfo: UserInfoType}) => {
     return (
         <section id="contact">
             <div style={{borderTop: "1px solid #ccc", padding: "20px", textAlign: "center"}}>

@@ -1,16 +1,16 @@
-import { Box, Card, CardContent, CircularProgress, Grid, Typography } from "@mui/material";
-import React, { Fragment, useEffect, type JSX } from "react";
+import { Grid, Typography } from "@mui/material";
+import React, { Fragment } from "react";
 import { CustomModal } from "../../ui/ CustomModal";
-import { CustomChevronRightBoxComponent } from "../Skills";
-import { WithConditional } from "../../ui/WithConditional";
 import { SingleExperience } from "./SingleExperience";
+import type { userExperienceResponeType } from "./types";
 
-export const Experience: React.FC = ({
-  userExperience,
-}: {
-  isUserProfileLoading: boolean;
-  userExperience: any;
-}) => {
+interface ExperienceProps {
+  userExperience: userExperienceResponeType[];
+}
+
+export const Experience: React.FC<ExperienceProps> = ({
+  userExperience
+}: ExperienceProps) => {
   const [experienceId, setExperienceId] = React.useState<string | null>(null);
   const customDate = (dateString: string | null) => {
     if(!dateString) return "Present";
@@ -24,7 +24,7 @@ export const Experience: React.FC = ({
       <CustomModal
         open={experienceId !== null && experienceId !== undefined}
         onClose={() => setExperienceId(null)}
-        heading={userExperience.find((experience) => experience.id === experienceId)?.company_name || ""}
+        heading={userExperience.find((experience: userExperienceResponeType) => experience.id === experienceId)?.company_name || ""}
         width="80%"
         height="60%"
       >
@@ -38,13 +38,13 @@ export const Experience: React.FC = ({
         Experience
       </Typography>
      <Grid container>
-  {userExperience?.map((exp, index) => (
+  {userExperience?.map((exp: userExperienceResponeType, index: number) => (
     <Fragment key={exp.id}>
       {index % 2 === 0 ? (
         <>
-          <Grid item sx={{borderRight: '2px solid #dfdfdf'}} size={6}></Grid>
+          <Grid sx={{borderRight: '2px solid #dfdfdf'}} size={6}></Grid>
 
-          <Grid onClick={() => setExperienceId(exp.id)} item sx={{pl:2,cursor: 'pointer'}} size={6}>
+          <Grid onClick={() => setExperienceId(exp.id)}  sx={{pl:2,cursor: 'pointer'}} size={6}>
             <Typography variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
@@ -52,13 +52,13 @@ export const Experience: React.FC = ({
         </>
       ) : (
         <>
-          <Grid onClick={() => setExperienceId(exp.id)} item sx={{textAlign: 'right',cursor:'pointer',borderRight: '2px solid #dfdfdf',pr:2}} size={6}>
+          <Grid onClick={() => setExperienceId(exp.id)}  sx={{textAlign: 'right',cursor:'pointer',borderRight: '2px solid #dfdfdf',pr:2}} size={6}>
             <Typography variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
           </Grid>
 
-          <Grid item size={6}></Grid>
+          <Grid  size={6}></Grid>
         </>
       )}
     </Fragment>

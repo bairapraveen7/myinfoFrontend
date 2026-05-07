@@ -1,21 +1,24 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import aboutImg from "../../assets/images/about.png";
+import type { UserInfoType } from "./types";
 
-export const About: React.FC = ({
+interface AboutProps {
+    userInfo: UserInfoType
+}
+
+export const About: React.FC<AboutProps> = ({
   userInfo,
 }: {
-  isUserProfileLoading: boolean;
-  userInfo: any;
+  userInfo: UserInfoType;
 }) => {
   return (
     <section id="about">
       <Grid
         container
-        alignItems="center"
+       
         sx={{ justifyContent: "space-between" }}
       >
-        <Grid item size={8}>
+        <Grid size={8}>
           <Typography
             sx={{
               mb: 1,
@@ -30,7 +33,7 @@ export const About: React.FC = ({
             {userInfo?.description}
           </Typography>
         </Grid>
-        <Grid item size={3} sx={{ alignItems: "center" }}>
+        <Grid size={3} sx={{ alignItems: "center" }}>
           <img
             src={userInfo?.dp_image_path }
             alt="About Me"
