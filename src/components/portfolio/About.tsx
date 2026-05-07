@@ -32,7 +32,7 @@ export const About: React.FC = ({
         </Grid>
         <Grid item size={3} sx={{ alignItems: "center" }}>
           <img
-            src={aboutImg}
+            src={userInfo?.dp_image_path }
             alt="About Me"
             style={{ borderRadius: "65%", width: "60%", height: "100%" }}
           />

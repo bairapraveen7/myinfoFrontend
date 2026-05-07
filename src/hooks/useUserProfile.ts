@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGetUserProfileInfo } from "../queries/getUserProfileInfo";
+import { useGetUserProfileInfo } from "../queries/useGetUserProfileInfo";
 
 export const useUserProfile = (params) => {
     const { data, isLoading, isError } = useGetUserProfileInfo(params);
