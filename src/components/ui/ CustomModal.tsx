@@ -4,7 +4,7 @@ import React from "react";
 import { PopoverBox } from "./PopoverBox";
 import CloseIcon from "@mui/icons-material/Close";
 
-export const CustomModal: React.FC<{ open: boolean; onClose: () => void; children: React.ReactNode; heading: string, width: string, height: string }> = ({ open, onClose, children, heading, width,height }) => {
+export const CustomModal: React.FC<{ open: boolean; onClose: () => void; children: React.ReactNode; heading: string, width: string, height: string }> = ({ open, onClose, children, heading }) => {
     const theme = useTheme();
     return (
         <Modal
