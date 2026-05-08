@@ -20,7 +20,7 @@ export const ListTodo: React.FC = () => {
     <React.Fragment>
       <Button
         variant="contained"
-        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        onClick={() => {
           refetch();
         }}
         color="primary"
