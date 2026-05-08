@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const getUserExperience = async ({body: {id}}: {body: {id: string | null}}) => {
-    console.log("params", {id});
     try{
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}v1/profile/experience/${id}`);
         return data;

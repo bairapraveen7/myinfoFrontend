@@ -14,7 +14,7 @@ interface Todo {
 export const ListTodo: React.FC = () => {
   const { data, isError: getAllTodosError, isLoading, refetch } = useGetTodos();
 
-  console.log("data is", data);
+  //console.log("data is", data);
 
   return (
     <React.Fragment>
@@ -22,7 +22,6 @@ export const ListTodo: React.FC = () => {
         variant="contained"
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           refetch();
-          console.log("event is",e);
         }}
         color="primary"
         sx={{ marginBottom: 2 }}

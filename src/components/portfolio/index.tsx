@@ -12,11 +12,11 @@ import { LinearProgress } from "@mui/material";
 
 export const Portfolio: React.FC = () => {
   const { user_experience, user_info, user_projects, user_skills, isLoading: isUserProfileLoading } = useUserProfile({body: {id: '1'}});
-  console.log("user_experience", user_experience);
-  console.log("user_info", user_info);
-  console.log("user_projects", user_projects);
-  console.log("user_skills", user_skills);
-  console.log("isUserProfileLoading", isUserProfileLoading);
+//   console.log("user_experience", user_experience);
+//   console.log("user_info", user_info);
+//   console.log("user_projects", user_projects);
+//   console.log("user_skills", user_skills);
+//   console.log("isUserProfileLoading", isUserProfileLoading);
 
   return (
     <div className={classes.portfolio}>
