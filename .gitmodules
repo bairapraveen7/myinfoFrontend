@@ -1,0 +1,3 @@
+[submodule "myinfoapi"]
+	path = myinfoapi
+	url = https://github.com/bairapraveen7/myinfoapi
