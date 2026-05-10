@@ -32,7 +32,7 @@ export const Experience: React.FC<ExperienceProps> = ({
       </CustomModal>
 
       <Typography
-        sx={{ mb: 1, borderBottom: "2px solid black", width: "fit-content" }}
+        sx={{ mb: 1,px: 1, borderBottom: "2px solid black", width: "fit-content" }}
         variant="h5"
       >
         Experience
@@ -44,16 +44,16 @@ export const Experience: React.FC<ExperienceProps> = ({
         <>
           <Grid sx={{borderRight: '2px solid #dfdfdf'}} size={6}></Grid>
 
-          <Grid onClick={() => setExperienceId(exp.id)}  sx={{pl:2,cursor: 'pointer'}} size={6}>
-            <Typography variant="h6">{exp.job_title}</Typography>
+          <Grid onClick={() => setExperienceId(exp.id)}  sx={{pl:2,cursor: 'pointer',display:'flex',flexDirection: 'column',alignItems: 'flex-start'}} size={6}>
+            <Typography sx={{backgroundColor: '#96caff',width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
           </Grid>
         </>
       ) : (
         <>
-          <Grid onClick={() => setExperienceId(exp.id)}  sx={{textAlign: 'right',cursor:'pointer',borderRight: '2px solid #dfdfdf',pr:2}} size={6}>
-            <Typography variant="h6">{exp.job_title}</Typography>
+          <Grid onClick={() => setExperienceId(exp.id)}  sx={{display: 'flex',flexDirection: 'column',alignItems: 'flex-end', cursor:'pointer',borderRight: '2px solid #dfdfdf',pr:2}} size={6}>
+            <Typography sx={{backgroundColor: '#96caff',width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
           </Grid>

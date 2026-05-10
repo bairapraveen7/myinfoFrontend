@@ -9,6 +9,7 @@ import { Experience } from "./experience/Experience";
 import { useUserProfile } from "../../hooks/useUserProfile";
 import { WithConditional } from "../ui/WithConditional";
 import { LinearProgress } from "@mui/material";
+import { LeftSideDivider, RightSideDivider } from "../ui/RightSideDivider";
 
 export const Portfolio: React.FC = () => {
   const { user_experience, user_info, user_projects, user_skills, isLoading: isUserProfileLoading } = useUserProfile({body: {id: '1'}});
@@ -28,8 +29,10 @@ export const Portfolio: React.FC = () => {
       </WithConditional>
       <div className={classes.content}>
         <About  userInfo={user_info} />
+        <RightSideDivider />
         <Skills userSkills={user_skills} />
         <Experience  userExperience={user_experience} />
+        <RightSideDivider />
         <Projects  userProjects={user_projects} />
       </div>
       <div className={classes.footer}>

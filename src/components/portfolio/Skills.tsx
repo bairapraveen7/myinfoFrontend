@@ -1,5 +1,6 @@
 import {
   Box,
+  Card,
   Grid,
   IconButton,
   styled,
@@ -12,12 +13,12 @@ import ChevronRightIcon from "@mui/icons-material/Code";
 const StyledBox = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
-  textAlign: "left"
+  textAlign: "left",
 }));
 
-export const CustomChevronRightBoxComponent = ({ children }:{children: React.ReactNode}) => {
-  return (
-    <StyledBox>
+export const CustomChevronRightBoxComponent = ({ sx, children }:{sx?: any,children: React.ReactNode}) => {
+    return (
+    <StyledBox sx={{...sx}}>
       <IconButton sx={{ alignSelf: "flex-start" }}>
         <ChevronRightIcon sx={{ fontSize: 16 }} />
       </IconButton>
@@ -38,23 +39,25 @@ export const Skills: React.FC<SkillsProps> = ({
   return (
     <section id="skills">
       <Typography
-        sx={{ mb: 1, borderBottom: "2px solid black", width: "fit-content" }}
+        sx={{ mb: 1, px: 1, borderBottom: "2px solid black", width: "fit-content" }}
         variant="h5"
       >
-        My Skills
+      My Skills
       </Typography>
       <Grid container spacing={4}>
         {
             Object.keys(userSkills || {}).map((skillCategory:string) => (
-                <Grid size={3}>
-                    <Typography variant="h6">{skillCategory}</Typography>
+                <Grid size={{ xs: 12, sm: 3 }} >
+                    <Card sx={{textAlign: 'center',height: '100%'}}>
+                    <Typography sx={{backgroundColor: '#dedede'}} variant="h6">{skillCategory}</Typography>
                     {
                         userSkills[skillCategory].map((skill:string) => (
-                            <CustomChevronRightBoxComponent>
+                            <CustomChevronRightBoxComponent sx={{padding: '4px 0px'}}>
                                 <Typography>{skill}</Typography>
                             </CustomChevronRightBoxComponent>
                         ))
                     }
+                    </Card>
                 </Grid>
             ))
         }

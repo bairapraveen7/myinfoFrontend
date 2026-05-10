@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
 import React from "react";
 import type { UserInfoType } from "./types";
 
@@ -11,6 +11,8 @@ export const About: React.FC<AboutProps> = ({
 }: {
   userInfo: UserInfoType;
 }) => {
+  const theme = useTheme();
+
   return (
     <section id="about">
       <Grid
@@ -18,10 +20,11 @@ export const About: React.FC<AboutProps> = ({
        
         sx={{ justifyContent: "space-between" }}
       >
-        <Grid size={8}>
+        <Grid size={{ xs: 12, md: 8 }}  sx={{order: {xs:2,md:1}}}>
           <Typography
             sx={{
               mb: 1,
+              px: 1,
               borderBottom: "2px solid black",
               width: "fit-content",
             }}
@@ -29,15 +32,15 @@ export const About: React.FC<AboutProps> = ({
           >
             About Me
           </Typography>
-          <Typography variant="body1">
+          <Typography sx={{fontFamily: 'Merriweather', fontWeight: '200'}} variant="body1">
             {userInfo?.description}
           </Typography>
         </Grid>
-        <Grid size={3} sx={{ alignItems: "center" }}>
+        <Grid size={{ xs: 12, md: 3  }} sx={{ display: 'flex',justifyContent: 'center', alignItems: "center", order: {xs: 1,md:2} }}>
           <img
             src={userInfo?.dp_image_path }
             alt="About Me"
-            style={{ borderRadius: "65%", width: "60%", height: "100%" }}
+            style={{ borderRadius: "65%", width: "60%", height: "auto" }}
           />
         </Grid>
       </Grid>

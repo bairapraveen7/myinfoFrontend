@@ -6,6 +6,10 @@ section{
   padding: 32px 0;
 }
 
+body{
+  background-color: #f8f3ec;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

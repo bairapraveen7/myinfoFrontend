@@ -12,6 +12,9 @@ export interface themeProps {
     },
     secondary:{
       main:string;
+    },
+    teritary: {
+      main: string
     }
    },
    typography:{
@@ -44,9 +47,16 @@ function App() {
         main: '#1976d2'
       },
       secondary: {
-        main: '#dc004e'
+        main: '#ffffff'
+      },
+      tertiary: {
+        main: '#dedede'
+      },
+      background: {
+        paper: '#f8f3ec'
       }
     },
+    
     typography: {
       fontFamily: 'Arial',
       fontSize: 16

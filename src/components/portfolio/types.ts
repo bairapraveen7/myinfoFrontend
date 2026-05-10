@@ -22,6 +22,7 @@ export type UserProjectType = {
   name: string;
   description: string;
   tools: string[];
+  link: string
 };
 
 export type UserProfileResponseType = {

@@ -16,14 +16,13 @@ export const CustomModal: React.FC<{ open: boolean; onClose: () => void; childre
         <PopoverBox>
             <Stack sx={{
                 position: "sticky",
-                top: "-1px",
+                top: '0px',
                 backgroundColor: theme['palette']['background']['paper'],
-                pt: 1,
                 alignItems: "center",
                 justifyContent: "center"
             }}>
                 <CloseIcon onClick={onClose} sx={{ position: "absolute", right: 16, cursor: "pointer" }} />
-                <Typography variant="h6" id="modal-modal-title">
+                <Typography color="primary" variant="h6" id="modal-modal-title">
                     {heading}
                 </Typography>
             </Stack>
