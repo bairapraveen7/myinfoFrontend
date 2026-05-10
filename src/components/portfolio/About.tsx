@@ -1,4 +1,4 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import type { UserInfoType } from "./types";
 
@@ -11,7 +11,6 @@ export const About: React.FC<AboutProps> = ({
 }: {
   userInfo: UserInfoType;
 }) => {
-  const theme = useTheme();
 
   return (
     <section id="about">

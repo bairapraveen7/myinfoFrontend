@@ -9,7 +9,7 @@ import { Experience } from "./experience/Experience";
 import { useUserProfile } from "../../hooks/useUserProfile";
 import { WithConditional } from "../ui/WithConditional";
 import { LinearProgress } from "@mui/material";
-import { LeftSideDivider, RightSideDivider } from "../ui/RightSideDivider";
+import { RightSideDivider } from "../ui/RightSideDivider";
 
 export const Portfolio: React.FC = () => {
   const { user_experience, user_info, user_projects, user_skills, isLoading: isUserProfileLoading } = useUserProfile({body: {id: '1'}});

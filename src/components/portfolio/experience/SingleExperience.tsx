@@ -1,4 +1,4 @@
-import { Box, Grid, LinearProgress, Tab, Tabs, Typography } from "@mui/material";
+import { Box, LinearProgress, Tab, Tabs, Typography } from "@mui/material";
 import { useGetExperience } from "../../../queries/useGetExperience";
 import { WithConditional } from "../../ui/WithConditional";
 import React, { useState } from "react";
@@ -38,7 +38,8 @@ export const SingleExperience = ({ id }: { id: string | null }) => {
     const [value,setValue] = useState(0);
 
      const handleChange = (e:React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+      console.log("event",e);
+      setValue(newValue);
   };
 
     return (

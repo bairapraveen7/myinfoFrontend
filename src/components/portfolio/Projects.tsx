@@ -1,7 +1,7 @@
 import { Box, Button, Card, Divider, IconButton, Typography } from "@mui/material";
 import React  from "react";
 import type { UserProjectType } from "./types";
-import { InsertLink, IntegrationInstructions } from "@mui/icons-material";
+import { InsertLink } from "@mui/icons-material";
 
 interface ProjectsProps {
     userProjects: UserProjectType[]
