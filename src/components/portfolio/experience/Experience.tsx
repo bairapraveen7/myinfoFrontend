@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography, useTheme } from "@mui/material";
 import React, { Fragment } from "react";
 import { CustomModal } from "../../ui/ CustomModal";
 import { SingleExperience } from "./SingleExperience";
@@ -11,6 +11,7 @@ interface ExperienceProps {
 export const Experience: React.FC<ExperienceProps> = ({
   userExperience
 }: ExperienceProps) => {
+  const theme = useTheme();
   const [experienceId, setExperienceId] = React.useState<string | null>(null);
   const customDate = (dateString: string | null) => {
     if(!dateString) return "Present";
@@ -45,7 +46,8 @@ export const Experience: React.FC<ExperienceProps> = ({
           <Grid sx={{borderRight: '2px solid #dfdfdf'}} size={6}></Grid>
 
           <Grid onClick={() => setExperienceId(exp.id)}  sx={{pl:2,cursor: 'pointer',display:'flex',flexDirection: 'column',alignItems: 'flex-start'}} size={6}>
-            <Typography sx={{backgroundColor: '#96caff',width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
+             
+            <Typography sx={{color: theme.palette.primary.main,width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
           </Grid>
@@ -53,7 +55,8 @@ export const Experience: React.FC<ExperienceProps> = ({
       ) : (
         <>
           <Grid onClick={() => setExperienceId(exp.id)}  sx={{display: 'flex',flexDirection: 'column',alignItems: 'flex-end', cursor:'pointer',borderRight: '2px solid #dfdfdf',pr:2}} size={6}>
-            <Typography sx={{backgroundColor: '#96caff',width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
+             
+            <Typography sx={{color: theme.palette.primary.main,width: 'fit-content'}} variant="h6">{exp.job_title}</Typography>
             <Typography>{exp.company_name} - {exp.location}</Typography>
             <Typography>{customDate(exp.start_date)} - {customDate(exp.end_date)}</Typography>
           </Grid>
