@@ -27,6 +27,7 @@ export const Portfolio: React.FC = () => {
       <WithConditional condition={isUserProfileLoading}>
         <LinearProgress />
       </WithConditional>
+      <WithConditional condition={Object.values(user_info).length > 0}>
       <div className={classes.content}>
         <About  userInfo={user_info} />
         <RightSideDivider />
@@ -38,6 +39,7 @@ export const Portfolio: React.FC = () => {
       <div className={classes.footer}>
         <Footer userInfo={user_info} />
       </div>
+      </WithConditional>
     </div>
   );
 };
