@@ -2,6 +2,7 @@ import { Box, Button, Card, Divider, IconButton, Typography } from "@mui/materia
 import React  from "react";
 import type { UserProjectType } from "./types";
 import { InsertLink } from "@mui/icons-material";
+import { WithConditional } from "../ui/WithConditional";
 
 interface ProjectsProps {
     userProjects: UserProjectType[]
@@ -23,7 +24,7 @@ export const Projects: React.FC<ProjectsProps> = ({
         {
             userProjects?.map((project) => (
                 <Card sx={{ marginBottom: 2, padding: 2 }}>
-                    <Typography variant="h6">{project.name}<IconButton target="__blank__" href={project.link}><InsertLink /></IconButton></Typography>
+                    <Typography variant="h6">{project.name}<WithConditional condition={project.github_link != null}><IconButton target="__blank__" href={project.github_link}><InsertLink /></IconButton></WithConditional></Typography>
                     <Box sx={{my: 0.5}}>
                         {project.tools.map((tool) => (
                             <Button sx={{borderRadius: '0.5rem',p:0.5,fontSize: '0.65rem',mr:1,cursor: 'text'}} variant="contained" >{tool}</Button>
